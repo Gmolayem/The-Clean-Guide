@@ -98,7 +98,7 @@ footer .mono{font-family:var(--serif);font-size:17px;color:var(--gold);letter-sp
       <span class="monogram">CL</span>
       <span><b>The Clean List</b><span>Non-Toxic Beauty</span></span>
     </a>
-    <span class="nav-count"><a class="navlink" href="toothpaste-guide.html">Toothpaste Guide</a> &nbsp;&middot;&nbsp; <b id="visibleCount">310</b> of 310 houses</span>
+    <span class="nav-count"><a class="navlink" href="#toothpaste-guide" id="guideLink">Toothpaste Guide</a> &nbsp;&middot;&nbsp; <b id="visibleCount">310</b> of 310 houses</span>
   </div>
 </header>
 
@@ -7969,6 +7969,488 @@ footer .mono{font-family:var(--serif);font-size:17px;color:var(--gold);letter-sp
     Array.prototype.forEach.call(this.querySelectorAll('.chip'), function(c){ c.classList.toggle('active', c === btn); });
     apply();
   });
+})();
+</script>
+
+<style>
+#guideView{position:fixed;inset:0;z-index:9999;background:#12100e;display:flex;flex-direction:column}
+#guideView[hidden]{display:none}
+#guideBack{position:absolute;top:14px;right:16px;z-index:3;font:600 12px/1 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;color:#f3ece1;background:rgba(20,17,14,.86);
+  border:1px solid rgba(214,178,110,.5);border-radius:999px;padding:11px 16px;cursor:pointer}
+#guideBack:hover{background:#d6b26e;color:#171410;border-color:#d6b26e}
+#guideFrame{flex:1;width:100%;border:0;background:#fff}
+</style>
+<div id="guideView" hidden>
+  <button id="guideBack" type="button">&larr; Back to the directory</button>
+  <iframe id="guideFrame" title="Toothpaste Guide"></iframe>
+</div>
+<script type="text/plain" id="guideDoc"><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clean Toothpaste Recommendations — The Clean List</title>
+<meta name="description" content="Twenty-four vetted fluoride-free, SLS-free toothpastes, and the one to pick for your teeth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#08080a;--line:rgba(217,192,138,.16);--line-2:rgba(217,192,138,.32);
+  --gold:#d9c08a;--gold-2:#e8d5a8;--cream:#f4efe4;--mist:#a9a49a;--rose:#d8a9a0;--sage:#a8bfa8;
+  --grad-gold:linear-gradient(120deg,#b99b5f 0%,#e8d5a8 28%,#fff6dd 48%,#e8d5a8 66%,#b99b5f 100%);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.3;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:.01em}
+.wrap{width:min(1180px,92vw);margin:0 auto;position:relative;z-index:2}
+.gold-text{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:500}
+header.nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(22px);background:rgba(8,8,10,.82);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 0}
+.brandmark{display:flex;align-items:center;gap:12px}
+.monogram{width:34px;height:34px;border:1px solid var(--line-2);display:grid;place-items:center;font-family:var(--serif);font-size:15px;color:var(--gold)}
+.brandmark b{font-family:var(--serif);font-size:19px;font-weight:500;letter-spacing:.06em}
+.brandmark span{display:block;font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--mist);margin-top:-2px}
+.nav-count{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.hero{padding:86px 0 44px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-52%;left:50%;transform:translateX(-50%);width:1120px;height:1120px;border-radius:50%;background:radial-gradient(circle,rgba(217,192,138,.14),rgba(217,192,138,.04) 42%,transparent 68%);pointer-events:none}
+.hero h1{font-size:clamp(38px,6.6vw,78px);line-height:1;margin:18px 0 0;font-weight:300}
+.hero h1 em{font-style:italic;color:var(--gold-2)}
+.hero p{max-width:640px;margin:20px auto 0;color:var(--mist);font-size:16px;font-weight:300;line-height:1.8}
+main{padding:20px 0 60px}
+.sec-head{border-bottom:1px solid var(--line);padding-bottom:14px;margin:58px 0 26px;display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.sec-head h2{font-size:clamp(24px,3.4vw,38px);font-weight:300;line-height:1}
+.sec-head span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.top{border:1px solid var(--line-2);background:linear-gradient(168deg,rgba(217,192,138,.09),rgba(255,255,255,.01));padding:34px;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;position:relative;overflow:hidden}
+.top::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad-gold)}
+.top .badge{display:inline-block;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#0b0b0d;background:var(--grad-gold);padding:5px 12px;font-weight:600}
+.top h2{font-size:clamp(30px,4vw,48px);margin:16px 0 0;font-weight:300}
+.top .why{color:var(--cream);font-size:15px;margin-top:14px;font-weight:300}
+.top .meta{display:flex;flex-direction:column;gap:12px;border-left:1px solid var(--line);padding-left:26px}
+.top .meta .row{display:flex;flex-direction:column;gap:4px}
+.top .meta .k{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.pick{border:1px solid var(--line);background:linear-gradient(168deg,rgba(255,255,255,.032),rgba(255,255,255,.008));padding:24px;display:flex;flex-direction:column;transition:.4s cubic-bezier(.2,.7,.3,1)}
+.pick:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:0 24px 54px -26px rgba(0,0,0,.9)}
+.pick .badge{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line-2);padding:4px 9px;align-self:flex-start}
+.pick h3{font-size:24px;margin:14px 0 0;font-weight:400}
+.pick .tagline{color:var(--rose);font-size:13px;font-style:italic;font-family:var(--serif);margin:8px 0 12px}
+.pick .why{color:var(--mist);font-size:13.5px;flex:1}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.pill{font-size:10.5px;color:var(--mist);border:1px solid var(--line);padding:4px 10px}
+.pill.good{color:var(--sage);border-color:rgba(168,191,168,.28);background:rgba(168,191,168,.06)}
+.pick .site{margin-top:16px;font-size:12.5px;color:var(--gold);border-top:1px solid var(--line);padding-top:14px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line-2);font-weight:500}
+td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+td.b{font-family:var(--serif);font-size:17px;color:var(--cream)}
+td.certs{color:var(--mist);font-size:12px}
+.tier{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line-2);padding:3px 8px;white-space:nowrap}
+.yes{color:var(--sage)}
+.no{color:#6d6a64}
+.avoid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.avoid div{border:1px solid var(--line);padding:16px 18px;font-size:13.5px;color:var(--mist)}
+.avoid b{color:var(--cream);font-family:var(--serif);font-size:17px;display:block;margin-bottom:4px;font-weight:400}
+footer{border-top:1px solid var(--line);padding:46px 0;text-align:center;color:var(--mist);font-size:12px}
+footer .mono{font-family:var(--serif);font-size:17px;color:var(--gold);letter-spacing:.08em;display:block;margin-bottom:8px}
+@media(max-width:820px){.top{grid-template-columns:1fr}.top .meta{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:20px}}
+@media(max-width:700px){.tablewrap{overflow-x:auto}table{min-width:760px}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brandmark" href="index.html">
+      <span class="monogram">CL</span>
+      <span><b>The Clean List</b><span>Non-Toxic Beauty</span></span>
+    </a>
+    <span class="nav-count">24 clean toothpastes</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Oral Care &middot; The Edit</p>
+    <h1>The Clean <em>Toothpaste</em> Edit</h1>
+    <p>Twenty-four vetted fluoride-free, SLS-free toothpastes &mdash; no artificial sweeteners, dyes or microplastics &mdash; and which one to pick for your teeth.</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="top">
+    <div>
+      <span class="badge">Top Pick</span>
+      <h2>Davids</h2>
+      <p class="why">EWG VERIFIED and Leaping Bunny certified, with fluoride-free nano-hydroxyapatite and a recyclable metal tube. It cleans, whitens and freshens without SLS, artificial colours, flavours or preservatives &mdash; the safest everyday default on this list.</p>
+    </div>
+    <div class="meta">
+      <div class="row"><span class="k">Why it wins</span><span>EWG VERIFIED + Leaping Bunny, nHA remineralising</span></div>
+      <div class="row"><span class="k">Free from</span><span>Fluoride, SLS, artificial colours &amp; sweeteners</span></div>
+      <div class="row"><span class="k">Packaging</span><span>Recyclable metal tube</span></div>
+      <div class="row"><span class="k">Web</span><span>davids-usa.com</span></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><h2>Pick by need</h2><span>10 categories</span></div>
+  <div class="picks">
+      <article class="pick">
+        <span class="badge">Best Overall</span>
+        <h3>Davids</h3>
+        <p class="tagline">Premium natural toothpaste in a recyclable metal tube.</p>
+        <p class="why">EWG VERIFIED and Leaping Bunny certified, with fluoride-free nano-hydroxyapatite and a recyclable metal tube. It cleans, whitens and freshens without SLS, artificial colours, flavours or preservatives.</p>
+        <div class="pills"><span class="pill good">EWG Verified</span><span class="pill good">Leaping Bunny</span><span class="pill good">Vegan</span><span class="pill good">SLS-Free</span></div>
+        <a class="site" href="https://davids-usa.com" target="_blank" rel="noopener">davids-usa.com</a>
+      </article>
+      <article class="pick">
+        <span class="badge">Best for Sensitive Teeth</span>
+        <h3>RiseWell</h3>
+        <p class="tagline">Mineral toothpaste built on hydroxyapatite for enamel repair.</p>
+        <p class="why">Built on hydroxyapatite plus calcium carbonate to remineralise enamel — the mineral dentists reach for on sensitivity — with no SLS, parabens or propylene glycol.</p>
+        <div class="pills"><span class="pill good">Vegan</span><span class="pill good">Cruelty-Free</span><span class="pill good">SLS-Free</span><span class="pill good">Paraben-Free</span></div>
+        <a class="site" href="https://risewell.com" target="_blank" rel="noopener">risewell.com</a>
+      </article>
+      <article class="pick">
+        <span class="badge">Best Whitening (No Peroxide)</span>
+        <h3>Lumineux</h3>
+        <p class="tagline">Dentist-formulated whitening oral care, free of peroxide.</p>
+        <p class="why">Dentist-formulated whitening that uses Dead Sea salt and coconut oil instead of peroxide or bleach, so it brightens without the sensitivity sting.</p>
+        <div class="pills"><span class="pill good">Vegan</span><span class="pill good">Cruelty-Free</span><span class="pill good">SLS-Free</span><span class="pill good">Peroxide-Free</span></div>
+        <a class="site" href="https://lumineuxhealth.com" target="_blank" rel="noopener">lumineuxhealth.com</a>
+      </article>
+      <article class="pick">
+        <span class="badge">Best for Kids</span>
+        <h3>Hello</h3>
+        <p class="tagline">Naturally friendly oral care, SLS- and dye-free.</p>
+        <p class="why">Dye-free, SLS-free and vegan, with dedicated kids’ pastes in flavours children actually accept — and it’s the easiest clean swap to find in a normal shop.</p>
+        <div class="pills"><span class="pill good">Vegan</span><span class="pill good">Cruelty-Free</span><span class="pill good">SLS-Free</span><span class="pill good">Dye-Free</span></div>
+        <a class="site" href="https://hello-products.com" target="_blank" rel="noopener">hello-products.com</a>
+      </article>
+      <article class="pick">
+        <span class="badge">Best Zero-Waste</span>
+        <h3>Bite</h3>
+        <p class="tagline">Zero-waste toothpaste tablets in refillable glass jars.</p>
+        <p class="why">Chewable toothpaste tablets in refillable glass jars. Nano-hydroxyapatite instead of fluoride, and no plastic tube to throw away.</p>
+        <div class="pills"><span class="pill good">B Corp</span><span class="pill good">Vegan</span><span class="pill good">Cruelty-Free</span><span class="pill good">SLS-Free</span></div>
+        <a class="site" href="https://bitetoothpastebits.com" target="_blank" rel="noopener">bitetoothpastebits.com</a>
+      </article>
+      <article class="pick">
+        <span class="badge">Best Budget</span>
+        <h3>Jason Natural</h3>
+        <p class="tagline">Botanical oral care free of artificial sweeteners and SLS.</p>
+        <p class="why">Botanical, SLS-free and free of artificial sweeteners at a drugstore price — the cheapest route to a genuinely clean paste.</p>
+        <div class="pills"><span class="pill good">Vegan</span><span class="pill good">Cruelty-Free</span><span class="pill good">SLS-Free</span></div>
+        <a class="site" href="https://jason-personalcare.com" target="_blank" rel="noopener">jason-personalcare.com</a>
+      </article>
+      <article class="pick">
+        <span class="badge">Best Certified Organic</span>
+        <h3>Georganics</h3>
+        <p class="tagline">Plastic-free organic oral care from West Sussex, England.</p>
+        <p class="why">COSMOS Organic, vegan and completely plastic-free, spanning toothpaste, tablets, mouthwash and floss.</p>
+        <div class="pills"><span class="pill good">COSMOS Organic</span><span class="pill good">Vegan</span><span class="pill good">Cruelty-Free</span><span class="pill good">Plastic-Free</span></div>
+        <a class="site" href="https://georganics.com" target="_blank" rel="noopener">georganics.com</a>
+      </article>
+      <article class="pick">
+        <span class="badge">Best for the Oral Microbiome</span>
+        <h3>Revitin</h3>
+        <p class="tagline">Prebiotic toothpaste that supports a healthy oral microbiome.</p>
+        <p class="why">A prebiotic paste that feeds the good bacteria in your mouth instead of nuking everything — no SLS, dye, sugar or xylitol.</p>
+        <div class="pills"><span class="pill good">SLS-Free</span><span class="pill good">Dye-Free</span><span class="pill good">GMO-Free</span><span class="pill good">Vegan</span></div>
+        <a class="site" href="https://revitin.com" target="_blank" rel="noopener">revitin.com</a>
+      </article>
+      <article class="pick">
+        <span class="badge">Best for Enamel Remineralising</span>
+        <h3>Apagard</h3>
+        <p class="tagline">Japanese nano-hydroxyapatite toothpaste, the nHA pioneer.</p>
+        <p class="why">The Japanese brand that pioneered nano-hydroxyapatite — the mineral your enamel is actually made of — decades before it became trendy.</p>
+        <div class="pills"><span class="pill good">Fluoride-Free</span><span class="pill good">SLS-Free</span></div>
+        <a class="site" href="https://apagard.com" target="_blank" rel="noopener">apagard.com</a>
+      </article>
+      <article class="pick">
+        <span class="badge">Best Minimal / Clay</span>
+        <h3>Redmond Earthpaste</h3>
+        <p class="tagline">Clay-based toothpaste made from ancient sea minerals.</p>
+        <p class="why">Bentonite clay and Real Salt with no fluoride, glycerin or foaming agents — about as simple as toothpaste gets.</p>
+        <div class="pills"><span class="pill good">Vegan</span><span class="pill good">Cruelty-Free</span><span class="pill good">Fluoride-Free</span></div>
+        <a class="site" href="https://redmond.life" target="_blank" rel="noopener">redmond.life</a>
+      </article>
+  </div>
+
+  <div class="sec-head"><h2>The full clean list</h2><span>24 toothpastes</span></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Brand</th><th>Tier</th><th>Core actives</th><th>Vegan</th><th>Plastic-free</th><th>Certifications</th><th>Web</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="b">Apagard</td>
+          <td><span class="tier">Mid</span></td>
+          <td><span class="yes">Hydroxyapatite</span></td>
+          <td><span class="no">—</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">Fluoride-Free, SLS-Free</td>
+          <td><a href="https://apagard.com" target="_blank" rel="noopener">apagard.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Auromere</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td class="certs">Vegan, Non-GMO, Cruelty-Free, Fluoride-Free</td>
+          <td><a href="https://auromere.com" target="_blank" rel="noopener">auromere.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Bite</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="yes">Hydroxyapatite</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td class="certs">B Corp, Vegan, Cruelty-Free, SLS-Free</td>
+          <td><a href="https://bitetoothpastebits.com" target="_blank" rel="noopener">bitetoothpastebits.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Boka</td>
+          <td><span class="tier">Mid</span></td>
+          <td><span class="yes">Hydroxyapatite</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td class="certs">Vegan, Cruelty-Free, SLS-Free, Gluten-Free</td>
+          <td><a href="https://boka.com" target="_blank" rel="noopener">boka.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Cocofloss</td>
+          <td><span class="tier">Mid</span></td>
+          <td><span class="yes">Hydroxyapatite</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">Vegan, Cruelty-Free, SLS-Free</td>
+          <td><a href="https://cocofloss.com" target="_blank" rel="noopener">cocofloss.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Davids</td>
+          <td><span class="tier">Mid</span></td>
+          <td><span class="yes">Hydroxyapatite</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td class="certs">EWG Verified, Leaping Bunny, Vegan, SLS-Free</td>
+          <td><a href="https://davids-usa.com" target="_blank" rel="noopener">davids-usa.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Denttabs</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td class="certs">Vegan, Cruelty-Free, Plastic-Free</td>
+          <td><a href="https://denttabs.com" target="_blank" rel="noopener">denttabs.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Desert Essence</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">Vegan, Cruelty-Free, SLS-Free</td>
+          <td><a href="https://desertessence.com" target="_blank" rel="noopener">desertessence.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Georganics</td>
+          <td><span class="tier">Mid</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td class="certs">COSMOS Organic, Vegan, Cruelty-Free, Plastic-Free</td>
+          <td><a href="https://georganics.com" target="_blank" rel="noopener">georganics.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Hello</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">Vegan, Cruelty-Free, SLS-Free, Dye-Free</td>
+          <td><a href="https://hello-products.com" target="_blank" rel="noopener">hello-products.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Huppy</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="yes">Hydroxyapatite</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td class="certs">B Corp, Vegan, Cruelty-Free, SLS-Free</td>
+          <td><a href="https://huppy.com" target="_blank" rel="noopener">huppy.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Jason Natural</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">Vegan, Cruelty-Free, SLS-Free</td>
+          <td><a href="https://jason-personalcare.com" target="_blank" rel="noopener">jason-personalcare.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Lebon</td>
+          <td><span class="tier">Luxe</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">COSMOS Organic, Vegan, Cruelty-Free, Fluoride-Free</td>
+          <td><a href="https://lebon.com" target="_blank" rel="noopener">lebon.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Lumineux</td>
+          <td><span class="tier">Mid</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">Vegan, Cruelty-Free, SLS-Free, Peroxide-Free</td>
+          <td><a href="https://lumineuxhealth.com" target="_blank" rel="noopener">lumineuxhealth.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Nelson Naturals</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td class="certs">Vegan, Cruelty-Free, Plastic-Free</td>
+          <td><a href="https://nelsonnaturals.com" target="_blank" rel="noopener">nelsonnaturals.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Oral Essentials</td>
+          <td><span class="tier">Mid</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">Vegan, Cruelty-Free, SLS-Free, Fluoride-Free</td>
+          <td><a href="https://oralessentials.com" target="_blank" rel="noopener">oralessentials.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Radius</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">Vegan, Cruelty-Free, USDA Organic</td>
+          <td><a href="https://radiususa.com" target="_blank" rel="noopener">radiususa.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Redmond Earthpaste</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td class="certs">Vegan, Cruelty-Free, Fluoride-Free</td>
+          <td><a href="https://redmond.life" target="_blank" rel="noopener">redmond.life</a></td>
+        </tr>
+        <tr>
+          <td class="b">Revitin</td>
+          <td><span class="tier">Luxe</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">SLS-Free, Dye-Free, GMO-Free, Vegan</td>
+          <td><a href="https://revitin.com" target="_blank" rel="noopener">revitin.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">RiseWell</td>
+          <td><span class="tier">Mid</span></td>
+          <td><span class="yes">Hydroxyapatite</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">Vegan, Cruelty-Free, SLS-Free, Paraben-Free</td>
+          <td><a href="https://risewell.com" target="_blank" rel="noopener">risewell.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">The Humble Co.</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td class="certs">Vegan, Cruelty-Free, SLS-Free, B Corp</td>
+          <td><a href="https://thehumble.co" target="_blank" rel="noopener">thehumble.co</a></td>
+        </tr>
+        <tr>
+          <td class="b">Theodent</td>
+          <td><span class="tier">Luxe</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">Vegan-Friendly, SLS-Free, Cruelty-Free</td>
+          <td><a href="https://theodent.com" target="_blank" rel="noopener">theodent.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Uncle Harry's</td>
+          <td><span class="tier">Accessible</span></td>
+          <td><span class="no">Fluoride-free</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td class="certs">Vegan, Cruelty-Free, Fluoride-Free</td>
+          <td><a href="https://uncleharrys.com" target="_blank" rel="noopener">uncleharrys.com</a></td>
+        </tr>
+        <tr>
+          <td class="b">Wellnesse</td>
+          <td><span class="tier">Mid</span></td>
+          <td><span class="yes">Hydroxyapatite</span></td>
+          <td><span class="yes">Yes</span></td>
+          <td><span class="no">—</span></td>
+          <td class="certs">Vegan, Cruelty-Free, SLS-Free</td>
+          <td><a href="https://wellnesse.com" target="_blank" rel="noopener">wellnesse.com</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec-head"><h2>What to avoid</h2><span>the dirty dozen</span></div>
+  <div class="avoid">
+    <div><b>Sodium Lauryl Sulfate</b>The foaming detergent linked to canker sores and gum irritation.</div>
+    <div><b>Triclosan</b>An antibacterial tied to hormone disruption; still found in some pastes.</div>
+    <div><b>Artificial sweeteners</b>Saccharin and aspartame &mdash; look for xylitol or stevia instead.</div>
+    <div><b>Artificial dyes</b>FD&amp;C Blue 1 and Red 40 add nothing but colour.</div>
+    <div><b>Microplastics</b>Polyethylene beads used as abrasives in some whitening formulas.</div>
+    <div><b>Propylene glycol</b>A petrochemical solvent many clean brands leave out.</div>
+    <div><b>Parabens</b>Synthetic preservatives to avoid in anything you put in your mouth.</div>
+    <div><b>Peroxide bleach</b>Whitening that strips enamel and causes sensitivity.</div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="mono">The Clean List</span>
+    Oral care edit &middot; 24 houses &middot; recommendations are editorial, always check the label
+  </div>
+</footer>
+</body>
+</html>
+</script>
+<script>
+(function(){
+  var view=document.getElementById('guideView');
+  var frame=document.getElementById('guideFrame');
+  var link=document.getElementById('guideLink');
+  var back=document.getElementById('guideBack');
+  if(!view||!frame||!link||!back)return;
+  function open(){
+    if(!frame.getAttribute('srcdoc'))frame.setAttribute('srcdoc',document.getElementById('guideDoc').textContent);
+    view.hidden=false;
+    document.body.style.overflow='hidden';
+    if(history.replaceState)history.replaceState(null,'','#toothpaste-guide');
+  }
+  function close(){
+    view.hidden=true;
+    document.body.style.overflow='';
+    if(history.replaceState)history.replaceState(null,'',location.pathname+location.search);
+  }
+  link.addEventListener('click',function(e){e.preventDefault();open();});
+  back.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!view.hidden)close();});
+  if(location.hash==='#toothpaste-guide')open();
 })();
 </script>
 </body>
